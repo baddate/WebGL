@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute  vec4 vPosition;
+attribute  vec4 vColor;
+varying vec4 fColor;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+void main()
+{
+    fColor = vColor;
+    gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+varying vec4 fColor;
+
+void
+main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="cubeandtetra.js"></script>
+
+<body>
+<canvas id="gl-canvas" width="650"" height="650">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+<br/>
+
+<button id= "Cube1Left">Robot1 Left</button>
+<button id= "Cube1Right">Robot1 Right</button>
+<button id= "Cube1R1">Robot1 Anti Rotate </button>
+<button id= "Cube1R2">Robot1 Clock Rotate</button>
+<button id= "Scale1">left  Scale </button>
+<button id= "Scales1">left Scale sub</button>
+<br/>
+<button id= "CubeLeft">Robot2 Left</button>
+<button id= "CubeRight">Robot2 Right</button>
+<button id= "CubeR1">Robot2 Anti Rotate </button>
+<button id= "CubeR2">Robot2 Clock Rotate</button>
+<button id= "Scale">right Scale</button>
+<button id= "Scales">right Scale sub</button>
+<br/>
+<button id= "EyeX">EyeX</button>
+<button id= "EyeY">EyeY</button>
+<button id= "EyeZ">EyeZ</button>
+<button id= "EyeX1">EyeX1</button>
+<button id= "EyeY1">EyeY1</button>
+<button id= "EyeZ1">EyeZ1</button>
+</body>
+</html>
